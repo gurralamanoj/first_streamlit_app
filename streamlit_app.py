@@ -67,7 +67,7 @@ def get_Fruit_load_list():
 def insert_row_snowflake(new_fruit):
     with my_cux.cursor() as my_cur:
         my_cur.execute("insert into fruit_data_list values ('"+ new_fruit +"')")
-        return 'Thanks for Adding " + new_fruit
+        return "Thanks for Adding " + new_fruit
     
 if streamlit.button('Get fruit load list'):
     my_data_row = get_Fruit_load_list()
