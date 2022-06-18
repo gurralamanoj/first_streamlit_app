@@ -30,17 +30,21 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
 
 streamlit.header("Fruity Vice Advice")
-fruit_choice = streamlit.text_input("Enter fruit name for info","Kiwi")
-streamlit.write ('Your Chocice : ' , fruit_choice)
+try:
+    fruit_choice = streamlit.text_input("Enter fruit name for info")
+    streamlit.write ('Your Chocice : ' , fruit_choice)
+    if not fruit_choice:
+         streamlit.error(" In valid Fruit , Please enter proper fruit name for info ")
+    else:
+         #import requests
+         fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+         #streamlit.text(fruityvice_response)
+         #streamlit.text(fruityvice_response.json()) # Only writes data to Screen
+         fruityvice_response = pandas.json_normalize(fruityvice_response.json())
+         streamlit.dataframe(fruityvice_response)
 
-
-#import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-streamlit.text(fruityvice_response)
-streamlit.text(fruityvice_response.json()) # Only writes data to Screen
-
-fruityvice_response = pandas.json_normalize(fruityvice_response.json())
-streamlit.dataframe(fruityvice_response)
+except URLError as e:
+    streamlit.error()
 
 streamlit.stop()
 #import snowflake.connector as sf
