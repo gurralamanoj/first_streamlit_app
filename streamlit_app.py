@@ -29,7 +29,7 @@ streamlit.write ('Your Chocice : ' , fruit_choice)
 
 
 import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 streamlit.text(fruityvice_response)
 streamlit.text(fruityvice_response.json()) # Only writes data to Screen
 
