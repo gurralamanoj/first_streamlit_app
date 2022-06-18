@@ -42,6 +42,7 @@ streamlit.text(fruityvice_response.json()) # Only writes data to Screen
 fruityvice_response = pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_response)
 
+streamlit.stop()
 #import snowflake.connector as sf
 my_cnx = sf.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
