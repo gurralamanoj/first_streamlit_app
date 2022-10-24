@@ -100,7 +100,7 @@ product_caption = 'Our warm, comfortable, ' + option + ' sweatsuit!'
 #    
 #streamlit.write ('Your Added : ' , add_my_fruit)
 #my_cur.execute("insert into fruit_data_list values ('"+ add_my_fruit +"')")
-"""
+#"""
 streamlit.text(" End of Application ")
 
 
